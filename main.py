@@ -2,6 +2,7 @@
 #math.sqrt(teamOne["Points For"] * teamTwo["Points Against"]), std_dev, num_reps
 # Each team is represented by a Normal Distribution where the mean is (team PF * opp PA). 
 # Mean of standard deviations of scores across the NBA in the 2018-19 season was 4.46  (https://shrstats.com/pace-control/).
+# Update: In order to create more varied boxscores, the standard deviation has been squared
 # Even though that might not be entirely accurate, I made this for fun :^)
 import sys
 from PyQt5.QtWidgets import *
@@ -42,7 +43,7 @@ class App(QWidget):
     def final(self, result):
         hbox = QHBoxLayout(self)
 
-        splitter1 = QSplitter(Qt.Horizontal)
+        topSplit = QSplitter(Qt.Horizontal)
         self.awayGame = QLabel()
         self.awayGame.setObjectName("awayGame")
         self.awayGame.setText(f"""{result["away"]["Name"]}: {result["away"]["Wins"]}""")
@@ -56,7 +57,7 @@ class App(QWidget):
         self.le = QPlainTextEdit()
         self.le.setObjectName("host")
         self.le.insertPlainText(result["notes"])
-        bottomSplit.addWidget(splitter1)
+        bottomSplit.addWidget(topSplit)
         bottomSplit.addWidget(self.le)
 
         hbox.addWidget(bottomSplit)
@@ -93,7 +94,7 @@ class App(QWidget):
         totalSims = 0
         gameNotes = ""
         while(counter < Games):
-            std_dev = 4.46
+            std_dev = 4.46 * 4.46
             num_reps = 1
             x = random.randint(0, num_reps)
             pointsFor_a = np.random.normal(math.sqrt(teamOne["Points For"] * teamTwo["Points Against"]), std_dev, num_reps).round(2)
@@ -171,7 +172,7 @@ class App(QWidget):
         cur = conn.cursor()
         cur.execute("SELECT team FROM Stats")
         items = [item[0] for item in cur.fetchall()]
-        items, okPressed = QInputDialog.getItem(self, "Get item",location, items, 0, False)
+        items, okPressed = QInputDialog.getItem(self, f"Pick {location.capitalize()} Team",location, items, 0, False)
         return items
     def getGameTotal(self):
         i, okPressed = QInputDialog.getInt(self, "How Many Games Will Be Played?","How Many Games:", 100, 0, 10000, 1)
