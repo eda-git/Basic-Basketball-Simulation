@@ -26,11 +26,16 @@ def tipOff(teamOne, teamTwo, Games):
         oneWins = 0
         twoWins = 0
         totalSims = 0
+        #gameNotes is a list of dictionaries of each game and its details. This will be used in the for loop in the template (gameplay.html)
         gameNotes = []
         while(counter < Games):
-            std_dev = 4.46 * 4.46
+            # Each team is represented by a Normal Distribution where the mean is (team PF * opp PA). 
+            # Mean of standard deviations of scores across the NBA in the 2018-19 season was 4.46  (https://shrstats.com/pace-control/).
+            # Even though that might not be entirely accurate, I made this for fun :^)
+            std_dev = 4.46
             num_reps = 1
             x = random.randint(0, num_reps)
+            #Normal Distribution based on the square root of PF^PA, standard deviation = std_dev
             pointsFor_a = np.random.normal(math.sqrt(teamOne["Points For"] * teamTwo["Points Against"]), std_dev, num_reps).round(2)
             pointsFor_b = np.random.normal(math.sqrt(teamTwo["Points For"] * teamOne["Points Against"]), std_dev, num_reps).round(2)
             Score_A = math.floor(np.mean(pointsFor_a))
@@ -65,10 +70,13 @@ def tipOff(teamOne, teamTwo, Games):
             Score_A = math.floor(np.mean(pointsFor_a))
             Score_B = math.floor(np.mean(pointsFor_b))
             if(Score_A > Score_B):
+                #If Team A wins, then add a win 
                 oneWins = oneWins + 1
             elif(Score_A == Score_B):
+                #If a game is tied, flip a coin to determine the winner
                 choice = random.randint(1, 2)
                 if(choice == 1):
+
                     Score_A = Score_A + 1
                     oneWins = oneWins + 1
                 else:
