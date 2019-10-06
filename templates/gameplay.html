@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="content">
+        <div id="menuBar" class="back">
+                
+                <div id="about">
+                    <a href="./">New Game</a>
+                </div>
+<div id="simTotal">
+    <div>Games: {{ content['gameTotal'] }}</div>
+</div>
+                    </div>
+<div id="results">
+    <div id="scoreboardheader">
+    <div id="team">
+Away
+    </div>
+    <div id="wins">
+Away Wins
+    </div>
+    <div id="team">
+        Home
+    </div>
+      <div id="wins">
+Home Wins
+    </div>
+</div>
+<div id="scoreboard">
+        <div id="team" class="{{ content['away']['Abb']}}">
+        </div>
+        <div id="wins">
+    <div>{{ content['away']['Wins']}}</div>
+        </div>
+        <div id="team" class="{{ content['home']['Abb']}}">
+        </div>
+        <div id="wins">
+    <div>{{ content['home']['Wins']}}</div>
+        </div>
+    </div>
+<div id="tables">
+    <table>
+        <tbody>
+            <tr id="head">
+                <td>Game#</td>
+                <td>Away</td>
+                <td>Away Score</td>
+                <td>Home</td>
+                <td>Home Score</td>
+            </tr>
+            
+{% for item in content["notes"] %}
+<tr>
+    <td>{{item["gameID"]}}</td>
+    <td>{{item["away"]}}</td>
+    <td>{{item["awayScore"]}}</td>
+    <td>{{item["home"]}}</td>
+    <td>{{item["homeScore"]}}</td>
+    </tr>
+    {% endfor %}
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<style>
+    tr#head td{
+        background: #000;
+        color: #FFF;
+        font-family: "BST", sans-serif;
+    }
+    tr#gameRow td{
+        font-family: "Roboto", sans-serif;
+    }
+    tr#gameRow td.teamResult{
+        font-family: "Roboto", sans-serif;
+        font-weight:bold;
+    }
+
+div#scoreboard {display: flex;width: 100%;}
+
+div#results {
+    height: 97%;
+    overflow: hidden;
+}
+
+div#team {
+    height: 3em;
+    width: 40%;
+}
+
+div#wins {
+    width: 10%;
+    text-align: center;
+    background: #000;
+    color: #FFF;
+    font-family: "Oswald", sans-serif;
+    font-size: larger;
+}
+
+#wins div {
+    margin-top: 6%;
+}
+
+div#scoreboardheader {
+    display: flex;
+}
+
+div#scoreboardheader div#team {
+    height: 100%;
+    font-family: "Oswald", sans-serif;
+    background: #484848;
+}
+
+div#scoreboardheader div#wins {
+    font-size: initial;
+}
+
+div#scoreboardheader {
+    text-align: center;
+    background: #000;
+    color: #FFF;
+}
+
+div#tables table {
+    width: 100%;
+    text-align: center;
+}
+
+div#tables {
+    overflow-y: auto;
+    height: 80%;
+}
+
+div#simTotal {
+    margin-left: 1%;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2em;
+    background: #00fff3;
+}
+</style>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

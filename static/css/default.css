@@ -1,0 +1,191 @@
+@font-face {
+    font-family: 'BST';
+    src: url('./fonts/BigShouldersText-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+div#menuBar {
+    display: inline-flex;
+    width: 100%;
+}
+
+div#gameSelect, div#gameSelect a {width: 70%;font-family: "Roboto", sans-serif;}
+
+#gameSelect input[type="text"] {
+    width: 80%;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+div#about a {
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    color: #00fff3;
+    font-size:1.2em;
+}
+div#about {
+    background: #000;
+    width: 30%;
+    text-align: center;
+}
+
+div#content {
+    margin: 0 auto;
+    width: 90%;
+    height: 79%;
+    background: #FFF;
+    margin-top: 3%;
+}
+
+html, body {
+    margin: 0 auto;
+    height: 100%;
+}
+
+body {
+    background: #c9c9c9;
+}
+
+div#teamSelect {
+    width: 50%;
+}
+
+div#teams {
+    display: flex;
+    height: 90%;
+}
+
+div#homeWindow, div#awayWindow {
+    height: 90%;
+}
+div#letsGo {
+    text-align: center;
+}
+select#home, select#away {
+    background: #000;
+    color: #FFF;
+    width: 100%;
+    height: 10%;
+    font-size: x-large;
+    border-top: none;
+    border-bottom: none;
+    border-right: #FFF;
+    font-family: "Roboto", sans-serif;
+    border-style: solid;
+}
+
+input[type="submit"] {
+    background: green;
+    height: 10%;
+    width: 90%;
+    color: #FFF;
+    border: none;
+    font-family: "BST", sans-serif;
+    font-size: x-large;
+
+}
+
+/* Teams */
+.atl { background: url('../img/hawks.svg') no-repeat center #E03A3E; background-size: contain;}
+.bos { background: url('../img/celtics.svg') no-repeat center #008348; background-size: contain;}
+.bkn { background: url('../img/nets.svg') no-repeat center #000; background-size: contain;}
+.cha { background: url('../img/hornets.svg') no-repeat center #00788C; background-size: contain;}
+.chi { background: url('../img/bulls.svg') no-repeat center #CE1141; background-size: contain;}
+.cle { background: url('../img/cavaliers.svg') no-repeat center #6F263D; background-size: contain;}
+.dal { background: url('../img/mavericks.svg') no-repeat center #0053BC; background-size: contain;}
+.den { background: url('../img/nuggets.svg') no-repeat center #00285E; background-size: contain;}
+.det { background: url('../img/pistons.svg') no-repeat center #ED174C; background-size: contain;}
+.gsw { background: url('../img/warriors.svg') no-repeat center #FFCD34; background-size: contain;}
+.hou { background: url('../img/rockets.svg') no-repeat center #CE1141; background-size: contain;}
+.ind { background: url('../img/pacers.svg') no-repeat center #FDBB30; background-size: contain;}
+.lac { background: url('../img/clippers.svg') no-repeat center #ED174C; background-size: contain;}
+.lal { background: url('../img/lakers.svg') no-repeat center #FDB927; background-size: contain;}
+.mem { background: url('../img/grizzlies.svg') no-repeat center #00285E; background-size: contain;}
+.mia { background: url('../img/heat.svg') no-repeat center #98002E; background-size: contain;}
+.mil { background: url('../img/bucks.svg') no-repeat center #00471B; background-size: contain;}
+.min { background: url('../img/timberwolves.svg') no-repeat center #0C2340; background-size: contain;}
+.no { background: url('../img/pelicans.svg') no-repeat center #B4975A; background-size: contain;}
+.nyk { background: url('../img/knicks.svg') no-repeat center #F58426; background-size: contain;}
+.okc { background: url('../img/thunder.svg') no-repeat center #007AC1; background-size: contain;}
+.orl { background: url('../img/magic.svg') no-repeat center #0077C0; background-size: contain;}
+.phi { background: url('../img/76ers.svg') no-repeat center #006BB6; background-size: contain;}
+.phx { background: url('../img/suns.svg') no-repeat center #E56020; background-size: contain;}
+.por { background: url('../img/trailblazers.svg') no-repeat center #E03A3E; background-size: contain;}
+.sac { background: url('../img/kings.svg') no-repeat center #5A2B81; background-size: contain;}
+.sa { background: url('../img/spurs.svg') no-repeat center #C4CED4; background-size: contain;}
+.tor { background: url('../img/raptors.svg') no-repeat center #CE1141; background-size: contain;}
+.uth { background: url('../img/jazz.svg') no-repeat center #002B5C; background-size: contain;}
+.wsh { background: url('../img/wizards.svg') no-repeat center #E31837; background-size: contain;}
+
+/* Results */
+div#scoreboard {display: flex;width: 100%;}
+
+div#results {
+    height: 97%;
+    overflow: hidden;
+}
+
+div#team {
+    height: 3em;
+    width: 40%;
+}
+
+div#wins {
+    width: 10%;
+    text-align: center;
+    background: #000;
+    color: #FFF;
+    font-family: "Oswald", sans-serif;
+    font-size: larger;
+}
+
+#wins div {
+    margin-top: 6%;
+}
+
+div#scoreboardheader {
+    display: flex;
+}
+
+div#scoreboardheader div#team {
+    height: 100%;
+    font-family: "Oswald", sans-serif;
+    background: #484848;
+}
+
+div#scoreboardheader div#wins {
+    font-size: initial;
+}
+
+div#scoreboardheader {
+    text-align: center;
+    background: #000;
+    color: #FFF;
+}
+
+div#tables table {
+    width: 100%;
+    text-align: center;
+}
+
+div#tables {
+    overflow-y: auto;
+    height: 80%;
+}
+
+div#simTotal {
+    margin-left: 1%;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2em;
+    background: #00fff3;
+}

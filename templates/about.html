@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="content">
+        <div id="menuBar" class="back">
+                
+                <div id="about">
+                    <a href="./">New Game</a>
+                </div>
+            </div>
+        <p>(c)2019 - eda-git
+            <br>
+            Built on top of <a href="https://github.com/smoqadam/PyFladesk">PyFladesk</a> by <a href="https://github.com/smoqadam">Saeed Moqadam</a>
+            <br>
+            Big Shoulders Text Font (OFL license) - Copyright 2019 <a href="https://github.com/xotypeco/big_shoulders">The Big Shoulders Project</a>
+            <br>
+            Roboto (Apache license) - Copyright 2019 <a href="https://github.com/google/roboto/">Google, Christian Robertson, et al</a>
+</p>
+</div>
+<style>
+    tr#head td{
+        background: #000;
+        color: #FFF;
+        font-family: "BST", sans-serif;
+    }
+    tr#gameRow td{
+        font-family: "Roboto", sans-serif;
+    }
+    tr#gameRow td.teamResult{
+        font-family: "Roboto", sans-serif;
+        font-weight:bold;
+    }
+    div#content p {font-family: 'Roboto', sans-serif;font-size: x-large;line-height: 2;}
+div#scoreboard {display: flex;width: 100%;}
+
+div#results {
+    height: 97%;
+    overflow: hidden;
+}
+
+div#team {
+    height: 3em;
+    width: 40%;
+}
+
+div#wins {
+    width: 10%;
+    text-align: center;
+    background: #000;
+    color: #FFF;
+    font-family: "Oswald", sans-serif;
+    font-size: larger;
+}
+
+#wins div {
+    margin-top: 6%;
+}
+
+div#scoreboardheader {
+    display: flex;
+}
+
+div#scoreboardheader div#team {
+    height: 100%;
+    font-family: "Oswald", sans-serif;
+    background: #484848;
+}
+
+div#scoreboardheader div#wins {
+    font-size: initial;
+}
+
+div#scoreboardheader {
+    text-align: center;
+    background: #000;
+    color: #FFF;
+}
+
+div#tables table {
+    width: 100%;
+    text-align: center;
+}
+
+div#tables {
+    overflow-y: auto;
+    height: 80%;
+}
+
+div#simTotal {
+    margin-left: 1%;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2em;
+    background: #00fff3;
+}
+</style>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

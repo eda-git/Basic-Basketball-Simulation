@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="content">
+        <div id="menuBar">
+                <div id="gameSelect">
+                   Games: <input type="text" name="games" form="game" value="500">
+                    
+                    </div>
+                <div id="about">
+                    <a href="./about">About</a>
+                </div>
+                    </div>
+    <div id="teams">
+        <div id="teamSelect">
+            <div id="homeWindow" class="">
+            </div>
+            <select id="home" name="home" form="game" onchange="HomechangeBanner()">
+                    <option value="atl">Atlanta Hawks</option>
+                    <option value="bos">Boston Celtics</option>
+                    <option value="bkn">Brooklyn Nets</option>
+                    <option value="cha">Charlotte Hornets</option>
+                    <option value="chi">Chicago Bulls</option>
+                    <option value="cle">Cleveland Cavaliers</option>
+                    <option value="dal">Dallas Mavericks</option>
+                    <option value="den">Denver Nuggets</option>
+                    <option value="det">Detroit Pistons</option>
+                    <option value="gsw">Golden State Warriors</option>
+                    <option value="hou">Houston Rockets</option>
+                    <option value="ind">Indiana Pacers</option>
+                    <option value="lac">Los Angeles Clippers</option>
+                    <option value="lal">Los Angeles Lakers</option>
+                    <option value="mem">Memphis Grizzlies</option>
+                    <option value="mia">Miami Heat</option>
+                    <option value="mil">Milwaukee Bucks</option>
+                    <option value="min">Minnesota Timberwolves</option>
+                    <option value="no">New Orleans Pelicans</option>
+                    <option value="nyk">New York Knicks</option>
+                    <option value="okc">Oklahoma City Thunder</option>
+                    <option value="orl">Orlando Magic</option>
+                    <option value="phi">Philadelphia 76ers</option>
+                    <option value="phx">Phoenix Suns</option>
+                    <option value="por">Portland Trail Blazers</option>
+                    <option value="sac">Sacramento Kings</option>
+                    <option value="sa">San Antonio Spurs</option>
+                    <option value="tor">Toronto Raptors</option>
+                    <option value="uth">Utah Jazz</option>
+                    <option value="wsh">Washington Wizards</option>
+            </select>
+        </div>
+        <div id="teamSelect">
+                <div id="awayWindow" class="">
+                </div>
+                <select id="away" name="away" form="game" onchange="AwaychangeBanner()">
+                        <option value="atl">Atlanta Hawks</option>
+                        <option value="bos">Boston Celtics</option>
+                        <option value="bkn">Brooklyn Nets</option>
+                        <option value="cha">Charlotte Hornets</option>
+                        <option value="chi">Chicago Bulls</option>
+                        <option value="cle">Cleveland Cavaliers</option>
+                        <option value="dal">Dallas Mavericks</option>
+                        <option value="den">Denver Nuggets</option>
+                        <option value="det">Detroit Pistons</option>
+                        <option value="gsw">Golden State Warriors</option>
+                        <option value="hou">Houston Rockets</option>
+                        <option value="ind">Indiana Pacers</option>
+                        <option value="lac">Los Angeles Clippers</option>
+                        <option value="lal">Los Angeles Lakers</option>
+                        <option value="mem">Memphis Grizzlies</option>
+                        <option value="mia">Miami Heat</option>
+                        <option value="mil">Milwaukee Bucks</option>
+                        <option value="min">Minnesota Timberwolves</option>
+                        <option value="no">New Orleans Pelicans</option>
+                        <option value="nyk">New York Knicks</option>
+                        <option value="okc">Oklahoma City Thunder</option>
+                        <option value="orl">Orlando Magic</option>
+                        <option value="phi">Philadelphia 76ers</option>
+                        <option value="phx">Phoenix Suns</option>
+                        <option value="por">Portland Trail Blazers</option>
+                        <option value="sac">Sacramento Kings</option>
+                        <option value="sa">San Antonio Spurs</option>
+                        <option value="tor">Toronto Raptors</option>
+                        <option value="uth">Utah Jazz</option>
+                        <option value="wsh">Washington Wizards</option>
+                </select>
+            </div>
+    </div>
+<div id="letsGo">
+    <form action="/gameplay" id="game">
+            <input type="submit" value="Tip Off!">
+        </form>
+</div>
+</div>
+<script>
+    
+    function HomechangeBanner() {
+        var home = document.getElementById("home");
+        var bannerImage = home.options[ home.selectedIndex ].value;
+        var homeWindow = document.getElementById("homeWindow");
+        document.getElementById('homeWindow').className = '';
+        homeWindow.classList.add(bannerImage);
+    }
+    function AwaychangeBanner() {
+        var away = document.getElementById("away");
+        var bannerImage = away.options[ away.selectedIndex ].value;
+        var awayWindow = document.getElementById("awayWindow");
+        document.getElementById('awayWindow').className = '';
+        awayWindow.classList.add(bannerImage);
+    }
+    var teams = ["atl", "bos", "bkn", "cha", "chi", "cle", "dal", "den", "det", "gsw", "hou", "ind", "lac", "lal", "mem", "mia", "mil", "min", "no", "nyk", "okc", "orl", "phi", "phx", "por", "sac", "sa", "tor", "uth", "wsh"]
+        var homeTeam =  teams[Math.floor(Math.random()*teams.length)];
+        var awayTeam =  teams[Math.floor(Math.random()*teams.length)];
+        document.getElementById("homeWindow").classList.add(homeTeam);
+        document.getElementById("awayWindow").classList.add(awayTeam);
+        document.getElementById('home').value = homeTeam;
+        document.getElementById('away').value = awayTeam;
+
+    </script>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
